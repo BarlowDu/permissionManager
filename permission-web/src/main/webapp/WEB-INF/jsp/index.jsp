@@ -11,7 +11,6 @@
     <title>a</title>
 </head>
 <body>
-<% String a="a";%>
-<%=a%>
+${map}
 </body>
 </html>
