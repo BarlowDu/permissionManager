@@ -1,11 +1,13 @@
 package com.barlow.permission.controller;
 
+import com.barlow.permission.dao.UserDao;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -16,6 +18,10 @@ import java.util.Map;
 @Controller
 @RequestMapping("/")
 public class HomeController {
+
+    @Resource(name="userDao")
+    UserDao userDao;
+
     @RequestMapping(value="/")
     @RequiresPermissions("user:index")
     public ModelAndView index(){
@@ -35,4 +41,13 @@ public class HomeController {
         result.addObject("map",s);
         return result;
     }
+
+    @RequestMapping(value="/login")
+    public ModelAndView login() {
+        ModelAndView result=new ModelAndView("login");
+        Object users=userDao.selectAll();
+        result.addObject("users",users);
+        return result;
+    }
+
 }

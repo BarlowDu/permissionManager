@@ -19,6 +19,8 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:4.3.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-web:4.3.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:4.3.7.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:4.3.7.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.3.7.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-core:1.3.2" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.6.4" level="project" />
     <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.8.3" level="project" />
@@ -26,8 +28,31 @@
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-spring:1.3.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-quartz:1.3.2" level="project" />
     <orderEntry type="library" name="Maven: org.opensymphony.quartz:quartz:1.6.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.2" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:jstl:1.2" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" name="Maven: taglibs:standard:1.1.2" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:druid:1.0.29" level="project" />
+    <orderEntry type="module-library">
+      <library name="Maven: com.alibaba:jconsole:1.8.0">
+        <CLASSES>
+          <root url="jar://C:/Program Files/Java/jdk1.8.0_91/jre/../lib/jconsole.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: com.alibaba:tools:1.8.0">
+        <CLASSES>
+          <root url="jar://C:/Program Files/Java/jdk1.8.0_91/jre/../lib/tools.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="Maven: org.mybatis:mybatis:3.4.2" level="project" />
+    <orderEntry type="library" name="Maven: org.mybatis:mybatis-spring:1.3.1" level="project" />
+    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.41" level="project" />
   </component>
 </module>
