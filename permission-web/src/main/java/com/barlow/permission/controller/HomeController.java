@@ -1,6 +1,8 @@
 package com.barlow.permission.controller;
 
+import com.barlow.permission.dao.ResourceDao;
 import com.barlow.permission.dao.UserDao;
+import com.barlow.permission.viewmodel.ResourceViewModel;
 import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -19,34 +22,32 @@ import java.util.Map;
 @RequestMapping("/")
 public class HomeController {
 
-    @Resource(name="userDao")
+    @Resource(name = "userDao")
     UserDao userDao;
 
-    @RequestMapping(value="/")
-    @RequiresPermissions("user:index")
-    public ModelAndView index(){
+    @Resource(name = "resourceDao")
+    ResourceDao resourceDao;
 
-        ModelAndView result=new ModelAndView("index");
-        Map<String,Integer> map=new HashMap<String,Integer>();
-        map.put("a",1);
-        map.put("b",2);
-        map.put("c",3);
-        map.put("d",4);
-        map.put("e",5);
-        map.put("f",6);
-        StringBuilder s=new StringBuilder();
-        for(Map.Entry<String,Integer> item:map.entrySet()){
-            s.append(item.getKey()).append(':').append(item.getValue()).append(',');
+    @RequestMapping(value = "/")
+    @RequiresPermissions("user:index")
+    public ModelAndView index() {
+        ModelAndView result = new ModelAndView("index");
+        List<com.barlow.permission.model.Resource> resources=resourceDao.selectAll();
+        ResourceViewModel data=new ResourceViewModel(resources.get(0));
+        for(int i=1;i<resources.size();i++){
+                data.getChildren().add(new ResourceViewModel(resources.get(i)));
+
+
         }
-        result.addObject("map",s);
+        result.addObject("menu",data);
         return result;
     }
 
-    @RequestMapping(value="/login")
+    @RequestMapping(value = "/login")
     public ModelAndView login() {
-        ModelAndView result=new ModelAndView("login");
-        Object users=userDao.selectAll();
-        result.addObject("users",users);
+        ModelAndView result = new ModelAndView("login");
+        Object users = userDao.selectAll();
+        result.addObject("users", users);
         return result;
     }
 
