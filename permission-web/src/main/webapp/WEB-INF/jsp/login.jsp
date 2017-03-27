@@ -13,10 +13,11 @@
     <title>Title</title>
 </head>
 <body>
-<ul>
-<c:forEach items="${users}" var="user">
-    <li>${user.username}</li>
-</c:forEach>
-</ul>
+<form method="post">
+    <input type="text" name="username" />
+    <input type="text" name="password" />
+    <input type="checkbox" name="rememberMe" />
+    <input type="submit" value="login" >
+</form>
 </body>
 </html>
